@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flutter Project Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #1976d2;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: .5rem 0 0 0;
+      font-size: 1.2rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .project-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 700px) {
+      .project-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .project {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.05);
+      padding: 1.5rem;
+      transition: box-shadow .3s;
+    }
+    .project:hover {
+      box-shadow: 0 8px 32px rgba(25, 118, 210, .10);
+    }
+    .project-title {
+      margin: 0;
+      color: #1976d2;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .project-desc {
+      margin: 1rem 0 .5rem 0;
+      font-size: 1rem;
+    }
+    .tech-stack {
+      font-size: .95rem;
+      color: #666;
+      margin-bottom: .25rem;
+    }
+    footer {
+      text-align: center;
+      color: #aaa;
+      font-size: .95rem;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Flutter Project Portfolio</h1>
+    <p>Cross-platform apps for productivity, social, and commerce</p>
+  </header>
+
+  <div class="container">
+    <section class="project-list">
+      <article class="project">
+        <h2 class="project-title">STMT: Simple Survey Form App</h2>
+        <div class="project-desc">
+          Lightweight survey app for quick data collection. Users can save responses locally for offline use and submit later.
+        </div>
+        <div class="tech-stack">
+          <strong>Tech:</strong> Flutter, SQLite, Provider
+        </div>
+      </article>
+      <article class="project">
+        <h2 class="project-title">Safado Dating App</h2>
+        <div class="project-desc">
+          Social dating platform featuring profile matching, swipe, chat, authentication, and premium subscription features.
+        </div>
+        <div class="tech-stack">
+          <strong>Tech:</strong> Flutter, FastAPI, PostgreSQL, socket.io
+        </div>
+      </article>
+      <article class="project">
+        <h2 class="project-title">Online eCommerce Application</h2>
+        <div class="project-desc">
+          ECommerce app for product listing, buying, and selling online. Features secure checkout, user dashboard, and Stripe integration.
+        </div>
+        <div class="tech-stack">
+          <strong>Tech:</strong> Flutter, Firebase, Stripe, REST APIs
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Your Name — Flutter Developer Portfolio
+  </footer>
+</body>
+</html>
