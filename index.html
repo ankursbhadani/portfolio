@@ -54,22 +54,28 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 460px;
+      min-height: 500px;
     }
     .swiper {
       width: 95%;
       max-width: 335px;
-      height: 170px;
+      height: 600px;
       margin-bottom: 1rem;
-      border-radius: 8px;
+      border-radius: 14px;
       overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f0f0f0;
     }
     .swiper-slide img {
-      display: block;
       width: 100%;
-      height: 170px;
-      object-fit: cover;
-      border-radius: 8px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
     }
     .swiper-button-next, .swiper-button-prev {
       color: #1976d2;
@@ -134,16 +140,16 @@
       <article class="project">
         <div class="swiper stmt-swiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://i.imgur.com/6KqgBzU.png" alt="STMT Survey App Screenshot 1"></div>
-            <div class="swiper-slide"><img src="https://i.imgur.com/wTNEw86.jpg" alt="STMT Survey App Screenshot 2"></div>
-            <div class="swiper-slide"><img src="https://i.imgur.com/X3JOMnI.png" alt="STMT Survey App Screenshot 3"></div>
+            <div class="swiper-slide"><img src="https://i.imgur.com/stmt-mockup1.png" alt="STMT in iPhone Frame"></div>
+            <div class="swiper-slide"><img src="https://i.imgur.com/stmt-mockup2.png" alt="STMT Form View in Device"></div>
+            <div class="swiper-slide"><img src="https://i.imgur.com/stmt-mockup3.png" alt="STMT Save Offline View"></div>
           </div>
           <div class="swiper-pagination"></div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
         </div>
         <h2 class="project-title">STMT: Simple Survey Form App</h2>
-        <div class="project-desc">A lightweight survey application allowing users to create and submit forms, saving responses locally for seamless later submission and offline use.</div>
+        <div class="project-desc">A lightweight survey app with offline support and local data persistence for seamless user experience.</div>
         <div class="tech-stack"><strong>Tech:</strong> Flutter, SQLite, Provider</div>
         <div class="buttons">
           <a class="btn" href="https://github.com/yourgithub/stmt-survey-app" target="_blank">GitHub</a>
@@ -154,16 +160,16 @@
       <article class="project">
         <div class="swiper safado-swiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://i.imgur.com/y3jj5bC.png" alt="Safado Dating App Screenshot 1"></div>
-            <div class="swiper-slide"><img src="https://i.imgur.com/FnE4Ytv.jpg" alt="Safado Dating App Screenshot 2"></div>
-            <div class="swiper-slide"><img src="https://i.imgur.com/pyVc9GX.jpg" alt="Safado Dating App Screenshot 3"></div>
+            <div class="swiper-slide"><img src="https://i.imgur.com/safado-mockup1.png" alt="Safado Match Screen"></div>
+            <div class="swiper-slide"><img src="https://i.imgur.com/safado-mockup2.png" alt="Safado Chat Screen"></div>
+            <div class="swiper-slide"><img src="https://i.imgur.com/safado-mockup3.png" alt="Safado Profile Screen"></div>
           </div>
           <div class="swiper-pagination"></div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
         </div>
         <h2 class="project-title">Safado Dating App</h2>
-        <div class="project-desc">A modern dating platform with profile matching, authentication, in-app chat, and premium subscriptions. Secure, scalable, and visually engaging.</div>
+        <div class="project-desc">A modern dating platform with swipe, chat, and subscription features—designed for engagement and scalability.</div>
         <div class="tech-stack"><strong>Tech:</strong> Flutter, FastAPI, PostgreSQL, socket.io</div>
         <div class="buttons">
           <a class="btn" href="https://github.com/yourgithub/safado-dating-app" target="_blank">GitHub</a>
@@ -174,16 +180,16 @@
       <article class="project">
         <div class="swiper ecommerce-swiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://i.imgur.com/GZytPWl.png" alt="eCommerce App Screenshot 1"></div>
-            <div class="swiper-slide"><img src="https://i.imgur.com/fg7jCgK.jpg" alt="eCommerce App Screenshot 2"></div>
-            <div class="swiper-slide"><img src="https://i.imgur.com/dFQUL6F.jpg" alt="eCommerce App Screenshot 3"></div>
+            <div class="swiper-slide"><img src="https://i.imgur.com/ecom-mockup1.png" alt="eCommerce Home Screen"></div>
+            <div class="swiper-slide"><img src="https://i.imgur.com/ecom-mockup2.png" alt="eCommerce Product View"></div>
+            <div class="swiper-slide"><img src="https://i.imgur.com/ecom-mockup3.png" alt="eCommerce Checkout Screen"></div>
           </div>
           <div class="swiper-pagination"></div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
         </div>
         <h2 class="project-title">Online eCommerce Application</h2>
-        <div class="project-desc">ECommerce system for easy product listing, buying, selling, and secure checkout. User dashboards and Stripe integration included.</div>
+        <div class="project-desc">A full-featured eCommerce app with product listing, cart, and secure Stripe-powered checkout.</div>
         <div class="tech-stack"><strong>Tech:</strong> Flutter, Firebase, Stripe, REST APIs</div>
         <div class="buttons">
           <a class="btn" href="https://github.com/yourgithub/ecommerce-app" target="_blank">GitHub</a>
@@ -200,7 +206,6 @@
   <!-- SwiperJS CDN JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    // Initialize Swiper sliders for each project
     new Swiper('.stmt-swiper', {
       loop: true,
       pagination: { el: '.stmt-swiper .swiper-pagination', clickable: true },
