@@ -73,14 +73,15 @@
     }
 
     .swiper {
-        width: 95%;
-        max-width: 335px;
-        height: 600px;
-        margin-bottom: 1rem;
-        border-radius: 14px;
-        overflow: hidden;
-        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
-    }
+  width: 95%;
+  max-width: 335px;
+  height: 220px; /* Reduced from 600px */
+  margin-bottom: 1rem;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  cursor: pointer; /* Indicates it's clickable */
+}
 
     .swiper-slide {
         display: flex;
@@ -90,12 +91,11 @@
     }
 
     .swiper-slide img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        border-radius: 12px;
-    }
-
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
     .swiper-button-next,
     .swiper-button-prev {
         color: #1976d2;
@@ -145,39 +145,44 @@
       font-size: .95rem;
       margin: 2.2rem 0 1rem 0;
     }
-  </style>
+</style>
 </head>
-<body>
-  <header>
-    <img class="profile-pic" src="ankur.png" alt="Ankur S Bhadani">
-    <h1>Ankur S Bhadani</h1>
-    <p>Flutter Developer</p>
-    <p>Cross-platform apps for productivity, social, and commerce</p>
-  </header>
 
-  <div class="container">
-    <section class="project-list">
-      <!-- STMT App -->
-      <article class="project">
-        <div class="swiper stmt-swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://i.imgur.com/stmt-mockup1.png" alt="STMT in iPhone Frame"></div>
-            <div class="swiper-slide"><img src="https://i.imgur.com/stmt-mockup2.png" alt="STMT Form View in Device"></div>
-            <div class="swiper-slide"><img src="https://i.imgur.com/stmt-mockup3.png" alt="STMT Save Offline View"></div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-        <h2 class="project-title">STMT: Simple Survey Form App</h2>
-        <div class="project-desc">A lightweight survey app with offline support and local data persistence for seamless user experience.</div>
-        <div class="tech-stack"><strong>Tech:</strong> Flutter, SQLite, Provider</div>
-        <div class="buttons">
-          <a class="btn" href="https://github.com/yourgithub/stmt-survey-app" target="_blank">GitHub</a>
-          <a class="btn" href="#">Live Demo</a>
-        </div>
-      </article>
-      <!-- Safado Dating App -->
+<body>
+    <header>
+        <img class="profile-pic" src="ankur.png" alt="Ankur S Bhadani">
+        <h1>Ankur S Bhadani</h1>
+        <p>Flutter Developer</p>
+        <p>Cross-platform apps for productivity, social, and commerce</p>
+    </header>
+
+    <div class="container">
+        <section class="project-list">
+            <!-- STMT App -->
+            <article class="project">
+                <div class="swiper stmt-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://i.imgur.com/stmt-mockup1.png"
+                                alt="STMT in iPhone Frame"></div>
+                        <div class="swiper-slide"><img src="https://i.imgur.com/stmt-mockup2.png"
+                                alt="STMT Form View in Device"></div>
+                        <div class="swiper-slide"><img src="https://i.imgur.com/stmt-mockup3.png"
+                                alt="STMT Save Offline View"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <h2 class="project-title">STMT: Simple Survey Form App</h2>
+                <div class="project-desc">A lightweight survey app with offline support and local data persistence for
+                    seamless user experience.</div>
+                <div class="tech-stack"><strong>Tech:</strong> Flutter, SQLite, Provider</div>
+                <div class="buttons">
+                    <a class="btn" href="https://github.com/yourgithub/stmt-survey-app" target="_blank">GitHub</a>
+                    <a class="btn" href="#">Live Demo</a>
+                </div>
+            </article>
+            <!-- Safado Dating App -->
       <article class="project">
         <div class="swiper safado-swiper">
           <div class="swiper-wrapper">
@@ -227,30 +232,96 @@
   <!-- SwiperJS CDN JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    new Swiper('.stmt-swiper', {
-      loop: true,
-      pagination: { el: '.stmt-swiper .swiper-pagination', clickable: true },
-      navigation: {
-        nextEl: '.stmt-swiper .swiper-button-next',
-        prevEl: '.stmt-swiper .swiper-button-prev'
-      },
+    // Initialize thumbnail sliders (optional, if you want small auto-sliding)
+    const stmtMini = new Swiper('.stmt-swiper', { loop: true, pagination: { el: '.stmt-swiper .swiper-pagination', clickable: true } });
+    const safadoMini = new Swiper('.safado-swiper', { loop: true, pagination: { el: '.safado-swiper .swiper-pagination', clickable: true } });
+    const ecommerceMini = new Swiper('.ecommerce-swiper', { loop: true, pagination: { el: '.ecommerce-swiper .swiper-pagination', clickable: true } });
+  
+    // Lightbox modal
+    const modal = document.getElementById("lightbox");
+    const close = document.querySelector(".close");
+    let modalSwiper;
+  
+    // Open modal on project click
+    document.querySelectorAll('.swiper').forEach(swiperEl => {
+      swiperEl.addEventListener('click', function () {
+        modal.style.display = "flex";
+        const slides = this.querySelectorAll('.swiper-slide img');
+        const wrapper = document.querySelector('.modal-swiper .swiper-wrapper');
+        wrapper.innerHTML = '';
+  
+        slides.forEach(img => {
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide';
+          slide.innerHTML = `<img src="${img.src}" alt="${img.alt}" style="width:100%;height:100%;object-fit:contain;">`;
+          wrapper.appendChild(slide);
+        });
+  
+        // Initialize modal swiper
+        if (modalSwiper) modalSwiper.destroy();
+        modalSwiper = new Swiper('.modal-swiper', {
+          loop: true,
+          pagination: { el: '.swiper-pagination', clickable: true },
+          navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+        });
+      });
     });
-    new Swiper('.safado-swiper', {
-      loop: true,
-      pagination: { el: '.safado-swiper .swiper-pagination', clickable: true },
-      navigation: {
-        nextEl: '.safado-swiper .swiper-button-next',
-        prevEl: '.safado-swiper .swiper-button-prev'
-      },
-    });
-    new Swiper('.ecommerce-swiper', {
-      loop: true,
-      pagination: { el: '.ecommerce-swiper .swiper-pagination', clickable: true },
-      navigation: {
-        nextEl: '.ecommerce-swiper .swiper-button-next',
-        prevEl: '.ecommerce-swiper .swiper-button-prev'
-      },
-    });
+  
+    // Close modal
+    close.onclick = () => { modal.style.display = "none"; };
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
   </script>
+  
+  <!-- Lightbox Modal -->
+<div id="lightbox" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <div class="modal-swiper">
+        <div class="swiper-wrapper"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      width: 90%;
+      max-width: 800px;
+      height: 80vh;
+      position: relative;
+    }
+    .modal-swiper {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .swiper-pagination {
+      bottom: 10px !important;
+    }
+  </style>
+  
 </body>
 </html>
